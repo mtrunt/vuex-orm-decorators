@@ -1,8 +1,6 @@
 import { Model, Attribute } from '@vuex-orm/core';
 import Mutator from '@vuex-orm/core/lib/attributes/contracts/Mutator';
 
-
-
 /**
  * Sets the property as the primary key of the model
  */
@@ -42,8 +40,8 @@ export function IncrementField() {
  * Adds the property as a generic attribute field
  * @param defaultValue The default value for the field (if undiefine dthe default will be '')
  */
-export function AttrField(defaultValue?: any) {
-    return Field(Model.attr(defaultValue));
+export function AttrField(defaultValue?: any, mutator?: Mutator<Function>) {
+    return Field(Model.attr(defaultValue, mutator));
 }
 
 /**
@@ -123,4 +121,3 @@ export function MorphToManyField(related: typeof Model | string, pivot: typeof M
 export function MorphedByManyField(related: typeof Model | string, pivot: typeof Model | string, relatedId: string, id: string, type: string, parentKey?: string, relatedKey?: string) {
     return Field(Model.morphedByMany(related, pivot, relatedId, id, type, parentKey, relatedKey));
 }
-

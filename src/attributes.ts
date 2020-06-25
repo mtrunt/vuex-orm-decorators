@@ -40,7 +40,7 @@ export function IncrementField() {
  * Adds the property as a generic attribute field
  * @param defaultValue The default value for the field (if undiefine dthe default will be '')
  */
-export function AttrField(defaultValue?: any, mutator?: Mutator<(value: unknown) => unknown>) {
+export function AttrField(defaultValue?: any, mutator?: Mutator<any>) {
     return Field(Model.attr(defaultValue, mutator));
 }
 
